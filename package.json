@@ -1,0 +1,29 @@
+{
+  "name": "linc_to_do_list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bfrager/LincToDoList.git"
+  },
+  "keywords": [
+    "todo"
+  ],
+  "author": "ABE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bfrager/LincToDoList/issues"
+  },
+  "homepage": "https://github.com/bfrager/LincToDoList#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.2.6",
+    "morgan": "^1.6.1"
+  }
+}
