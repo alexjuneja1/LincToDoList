@@ -16,8 +16,17 @@ app.use(logger("dev"))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
+//middleware
+app.use(express.static("public"))
+app.use("/assets", express.static(__dirname + "/assets"))
+
+//root route
+app.get("/", function(req,res){
+  res.render("./public/index.html")
+})
+
 //api routes
-var apiRoutes = require('./routes/api_routes.js')
+var apiRoutes = require("./routes/api_routes.js")
 app.use("/api", apiRoutes)
 
 //set port for server
