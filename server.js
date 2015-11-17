@@ -16,7 +16,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
 //route all requests through api
-app.use("/api")
+app.use("/api", function(req,res){
+  res.json({message:"here's your files"})
+})
 
 //set port for server
 app.listen(port, function(){
