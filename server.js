@@ -5,6 +5,7 @@ var express = require("express"),
     mongoose = require("mongoose"),
     port = process.env.PORT || 3000
 
+
 //connect to database
 mongoose.connect("mongodb://localhost/todos")
 
@@ -15,10 +16,9 @@ app.use(logger("dev"))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
-//route all requests through api
-app.use("/api", function(req,res){
-  res.json({message:"here's your files"})
-})
+//api routes
+var apiRoutes = require('./routes/api_routes.js')
+app.use("/api", apiRoutes)
 
 //set port for server
 app.listen(port, function(){

@@ -41,7 +41,7 @@ function update(req,res){
 function destroy(req,res){
   Todo.remove({_id: req.params.id}, function (err){
     if (err) console.log(err)
-    res.json(success: true, message: "Bye felicia!")
+    res.json({success: true, message: "Bye felicia!"})
   })
 }
 
