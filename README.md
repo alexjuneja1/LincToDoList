@@ -6,4 +6,4 @@
 
 // Made a mistake? No problem, users can delete any activity and even edit activities in case of filling the criteria incorrectly. The app will respond accordingly in a smooth, seamless manner. //
 
-![Image of List](http://imgur.com/0b6KNYA)
+![Image of List](http://i.imgur.com/0b6KNYA.png)
