@@ -31,7 +31,7 @@ function show(req,res){
 
 //update todo text
 function update(req,res){
-  Todo.findOneAndUpdate({_id: req.params.id}, {name: req.body.age}, function (err, todo){
+  Todo.findOneAndUpdate({_id: req.params.id}, {name: req.body.name, starred: req.body.starred}, function (err, todo){
     if (err) console.log(err)
     res.json(todo)
   })
