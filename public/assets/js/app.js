@@ -51,8 +51,16 @@ $(function(){
   //strikes through list item name
   function strikeParent(){
     $(this).on('click', function(){
-      $(this).next().next().toggleClass('strikethrough');
-    });
+      var id = $(this).parent().attr('id')
+      $.ajax({
+        url: "/api/" + id,
+        method: "PUT",
+        success: function(data){
+          console.log("Completed item: " + data)
+          $(this).next().next().toggleClass('strikethrough');
+        }
+      })
+    })
   }
 
   //adds a new box and retreives value from todo id
