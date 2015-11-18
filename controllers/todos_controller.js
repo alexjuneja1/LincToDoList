@@ -17,7 +17,7 @@ function create(req,res){
   todo.checked = false
   todo.save(function(err){
     if (err) console.log(err)
-    res.json({success: true, message: 'Todo Created... yeah good luck with that'})
+    res.json({success: true, message: "Todo Created!"})
   })
 }
 
