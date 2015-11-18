@@ -7,8 +7,19 @@ $(function(){
   var $checkbox = $(".checkBox");
 
   //load all todolist items from database
-  
-
+  function loadItems(){
+    $.ajax({
+      url: "/api",
+      method: "GET",
+      success: function(data){
+        console.log("Items = " + data)
+        data.forEach(function(todo){
+          $(".list").append("<p class='item'><input type='checkbox' class='checkBox'><i class='glyphicon glyphicon-star'></i><span>"+todo.name+"</span><i class='glyphicon glyphicon-remove'></i></p>");
+        })
+      }
+    })
+  }
+  loadItems()
 
   //removes list item when x button is clicked
   //moving from one element to another is traversing
