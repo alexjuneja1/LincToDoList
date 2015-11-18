@@ -1,9 +1,14 @@
 $(function(){
+
   //initializing global variables
   //gave $ to remember its a jQuery object
   var $remove = $(".glyphicon-remove");
   var $star = $(".glyphicon-star");
   var $checkbox = $(".checkBox");
+
+  //load all todolist items from database
+  
+
 
   //removes list item when x button is clicked
   //moving from one element to another is traversing
@@ -37,7 +42,18 @@ $(function(){
   //adds a new box and retreives value from todo id
   //made callback functions to include the new items created into array
   $(".btn").on('click', function(){
-    $(".list").append("<p class='item'><input type='checkbox' class='checkBox'><i class='glyphicon glyphicon-star'></i><span>"+$('#todo').val()+"</span><i class='glyphicon glyphicon-remove'></i></p>");
+    var val = $('#todo').val()
+    console.log(val)
+    $.ajax({
+      url: "/api",
+      method: "POST",
+      data: { name: val, starred: false},
+      dataType: "application/json",
+      success: function(data){
+        console.log(data)
+      }
+    })
+    $(".list").append("<p class='item'><input type='checkbox' class='checkBox'><i class='glyphicon glyphicon-star'></i><span>"+val+"</span><i class='glyphicon glyphicon-remove'></i></p>");
     $('#todo').val('');
     console.log('add button pressed');
     $remove = $(".glyphicon-remove");
@@ -47,4 +63,9 @@ $(function(){
     $(".glyphicon-star").each(starParent);
     $(".checkBox").each(strikeParent);
   });
+
+  // $("#add-todo").on("click", function(evt){
+  //   var current_name = $("#todo").val()
+  //   console.log("new todo value = " + current_name)
+  // })
 })
